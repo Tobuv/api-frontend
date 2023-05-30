@@ -47,6 +47,21 @@ export async function getInterfaceInfoByIdUsingGET(
   });
 }
 
+/** invokeInterfaceInfo POST /api/interfaceinfo/invoke */
+export async function invokeInterfaceInfoUsingPOST(
+  body: API.InterfaceInfoInvokeRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponseobject>('/api/interfaceinfo/invoke', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** listInterfaceInfo GET /api/interfaceinfo/list */
 export async function listInterfaceInfoUsingGET(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
@@ -73,6 +88,36 @@ export async function listInterfaceInfoByPageUsingGET(
     params: {
       ...params,
     },
+    ...(options || {}),
+  });
+}
+
+/** offlineInterfaceInfo POST /api/interfaceinfo/offline */
+export async function offlineInterfaceInfoUsingPOST(
+  body: API.IdRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponseboolean>('/api/interfaceinfo/offline', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** onlineInterfaceInfo POST /api/interfaceinfo/online */
+export async function onlineInterfaceInfoUsingPOST(
+  body: API.IdRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponseboolean>('/api/interfaceinfo/online', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
     ...(options || {}),
   });
 }
